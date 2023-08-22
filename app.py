@@ -6,7 +6,7 @@ st.title('Flat price predictor within Dhaka')
 model = pickle.load(open('ridgemodel.pkl', 'rb'))
 df = pd.read_csv('cleaned_data.csv')
 location = st.selectbox('type your desired location:',
-                        df['Location'].unique())
+                        sorted(df['Location'].unique()))
 bed = st.text_input("Enter required no. of bedroom:")
 bath = st.text_input("Enter required no. of bathroom:")
 size = st.text_input("Enter required size:")
