@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import sklearn
 
 st.title('Flat price predictor within Dhaka')
 model = pickle.load(open('ridgemodel.pkl', 'rb'))
