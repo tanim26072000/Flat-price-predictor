@@ -20,7 +20,7 @@ if st.button('Predict'):
     crore = p_int//10000000
     lakh = p_int % 10000000
     lakh = lakh//100000
-    s = f'the price of a flat with desired features in desired location can be almost'
+    s = f'the price of a flat with desired features in desired location can be around'
     s1 = ''
     s2 = ''
     if (crore > 0):
