@@ -25,8 +25,8 @@ if st.button('Predict'):
     s2 = ''
     if (crore > 0):
         s1 = f' {crore} crore(s)'
-        # s = s+s1
+        s = s+s1
     if (lakh > 0):
         s2 = f' {lakh} lakh(s)'
-        # s = s+s2
-    st.markdown(f'{s}##{s1}{s2}')
+        s = s+s2
+    st.write(s)
