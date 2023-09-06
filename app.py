@@ -15,12 +15,11 @@ size = st.text_input("Enter required size (in sqft):")
 if st.button('Predict'):
     if bed == "" or bath == "" or size == '':
         if (bed == ''):
-            st.write("No. of bed can't be empty")
+            st.warning("No. of bed can't be empty")
         if (bath == ''):
-            st.write("No. of bath can't be empty")
+            st.warning("No. of bath can't be empty")
         if (size == ''):
-            st.write("size can't be empty")
-        exit()
+            st.warning("size can't be empty")
     else:
         st.write(f"bed= {bed}")
         bed, bath, size = map(float, [bed, bath, size])
