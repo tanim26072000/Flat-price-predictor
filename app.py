@@ -21,7 +21,6 @@ if st.button('Predict'):
         if (size == ''):
             st.warning("size can't be empty")
     else:
-        st.write(f"bed= {bed}")
         bed, bath, size = map(float, [bed, bath, size])
         test = {'Location': location, 'Bed': bed, 'Bath': bath, 'Area': size}
         x_test = pd.DataFrame(test, index=[0])
