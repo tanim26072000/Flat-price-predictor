@@ -5,13 +5,25 @@ import pickle
 st.title('Flat rent predictor within Dhaka')
 model = pickle.load(open('ridgemodel.pkl', 'rb'))
 df = pd.read_csv('cleaned_data.csv')
+bed, bath, size = 0
 location = st.selectbox('type your desired location:',
                         df['Location'].unique())
 bed = st.text_input("Enter required no. of bedroom:")
 bath = st.text_input("Enter required no. of bathroom:")
 size = st.text_input("Enter required size (in sqft):")
 
+
 if st.button('Predict'):
+    if (bed == 0):
+        st.write("No. of bed can't be empty")
+        exit()
+    if (bath == 0):
+        st.write("No. of bath can't be empty")
+        exit()
+    if (size == 0):
+        st.write("size can't be empty")
+        exit()
+
     bed, bath, size = map(float, [bed, bath, size])
     test = {'Location': location, 'Bed': bed, 'Bath': bath, 'Area': size}
     x_test = pd.DataFrame(test, index=[0])
