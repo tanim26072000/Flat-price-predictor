@@ -22,23 +22,23 @@ if st.button('Predict'):
         if (size == 0):
             st.write("size can't be empty")
         exit()
-
-    st.write(f"bed= {bed}")
-    bed, bath, size = map(float, [bed, bath, size])
-    test = {'Location': location, 'Bed': bed, 'Bath': bath, 'Area': size}
-    x_test = pd.DataFrame(test, index=[0])
-    prediction = model.predict(x_test)
-    p_int = int(prediction[0])
-    crore = p_int//100000
-    lakh = p_int % 100000
-    lakh = lakh//1000
-    s = f'The rent of a flat with desired features in desired location can be around'
-    s1 = ''
-    s2 = ''
-    if (crore > 0):
-        s1 = f' {crore} lakh(s)'
-        s = s+s1
-    if (lakh > 0):
-        s2 = f' {lakh} Thousand(s)'
-        s = s+s2
-    st.write(s)
+    else:
+        st.write(f"bed= {bed}")
+        bed, bath, size = map(float, [bed, bath, size])
+        test = {'Location': location, 'Bed': bed, 'Bath': bath, 'Area': size}
+        x_test = pd.DataFrame(test, index=[0])
+        prediction = model.predict(x_test)
+        p_int = int(prediction[0])
+        crore = p_int//100000
+        lakh = p_int % 100000
+        lakh = lakh//1000
+        s = f'The rent of a flat with desired features in desired location can be around'
+        s1 = ''
+        s2 = ''
+        if (crore > 0):
+            s1 = f' {crore} lakh(s)'
+            s = s+s1
+        if (lakh > 0):
+            s2 = f' {lakh} Thousand(s)'
+            s = s+s2
+        st.write(s)
