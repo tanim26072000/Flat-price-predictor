@@ -2,14 +2,14 @@ import streamlit as st
 import pandas as pd
 import pickle
 
-st.title('Flat price predictor within Dhaka')
+st.title('Flat rent predictor within Dhaka')
 model = pickle.load(open('ridgemodel.pkl', 'rb'))
 df = pd.read_csv('cleaned_data.csv')
 location = st.selectbox('type your desired location:',
                         df['Location'].unique())
 bed = st.text_input("Enter required no. of bedroom:")
 bath = st.text_input("Enter required no. of bathroom:")
-size = st.text_input("Enter required size:")
+size = st.text_input("Enter required size (in sqft):")
 
 if st.button('Predict'):
     bed, bath, size = map(float, [bed, bath, size])
