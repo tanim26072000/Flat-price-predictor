@@ -17,16 +17,16 @@ if st.button('Predict'):
     x_test = pd.DataFrame(test, index=[0])
     prediction = model.predict(x_test)
     p_int = int(prediction[0])
-    crore = p_int//10000000
-    lakh = p_int % 10000000
-    lakh = lakh//100000
-    s = f'the price of a flat with desired features in desired location can be around'
+    crore = p_int//100000
+    lakh = p_int % 100000
+    lakh = lakh//1000
+    s = f'the rent of a flat with desired features in desired location can be around'
     s1 = ''
     s2 = ''
     if (crore > 0):
-        s1 = f' {crore} crore(s)'
+        s1 = f' {crore} lakh(s)'
         s = s+s1
     if (lakh > 0):
-        s2 = f' {lakh} lakh(s)'
+        s2 = f' {lakh} Thousand(s)'
         s = s+s2
     st.write(s)
