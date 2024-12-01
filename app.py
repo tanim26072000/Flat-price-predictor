@@ -3,7 +3,8 @@ import pandas as pd
 import pickle
 
 st.title('Flat Rent Predictor within Dhaka')
-model = pickle.load(open('ridgemodel.pkl', 'rb'))
+with open('ridgemodel.pkl', 'rb') as f:
+    model = pickle.load(f)
 df = pd.read_csv('cleaned_data.csv')
 location = st.selectbox('type your desired location:',
                         df['Location'].unique())
